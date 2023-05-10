@@ -1,11 +1,55 @@
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+} from "reactstrap"
 
+function Header() {
+  const [isOpen, setIsOpen] = useState(false)
 
-const Header = () => {
-    return (
-        <>
-            <h2>And a header by CR7</h2>
-        </>
-    )
+  const toggle = () => setIsOpen(!isOpen)
+
+  return (
+    <div>
+      <Navbar {...Link}>
+        <NavbarBrand href="/">Lux-R-Us</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink href="/apartmentindex">View Listings</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/apartmentnew">Create Listing</NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Options
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+          <NavbarText>Simple Text</NavbarText>
+        </Collapse>
+      </Navbar>
+    </div>
+  )
 }
 
 export default Header
