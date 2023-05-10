@@ -4,9 +4,9 @@ import Header from "./components/Header"
 import Home from "./pages/Home"
 import ApartmentIndex from "./pages/ApartmentIndex"
 import SignUp from "./components/SignUp"
-import SignIn from "./components/SignIn"
+import Login from "./components/Login"
 import ApartmentEdit from "./pages/ApartmentEdit"
-import ApartmentProtectedIndex from "./pages/ApartmentProtectedIndex"
+import MyApartments from "./pages/MyApartments"
 import ApartmentNew from "./pages/ApartmentNew"
 import ApartmentShow from "./pages/ApartmentShow"
 import NotFound from "./pages/NotFound"
@@ -26,13 +26,10 @@ const App = () => {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/index" element={<ApartmentIndex />} />
-            <Route
-              path="/apartmentprotectedindex"
-              element={<ApartmentProtectedIndex />}
-            />
+            <Route path="/myapartments" element={<MyApartments />} />
             <Route path="/apartmentshow" element={<ApartmentShow />} />
             <Route path="/apartmentnew" element={<ApartmentNew />} />
             <Route path="/apartmentedit" element={<ApartmentEdit />} />
