@@ -1,6 +1,6 @@
 
 
-const ApartmentProtectedIndex = () => {
+const MyApartments = () => {
     return(
         <>
             <h2> Show all the pads: protected </h2>
@@ -8,4 +8,4 @@ const ApartmentProtectedIndex = () => {
     )
 }
 
-export default ApartmentProtectedIndex
+export default MyApartments
