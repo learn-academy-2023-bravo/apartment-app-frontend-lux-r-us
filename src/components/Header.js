@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -13,43 +13,39 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
-} from "reactstrap"
+} from "reactstrap";
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen)
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Navbar {...Link}>
-        <NavbarBrand href="/">Lux-R-Us</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink href="/apartmentindex">View Listings</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/apartmentnew">Create Listing</NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Simple Text</NavbarText>
-        </Collapse>
-      </Navbar>
-    </div>
-  )
+    <header class="bg-gray-900 text-white">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-xl font-semibold">
+          LUX-R-US
+        </a>
+        <nav class="flex items-center">
+          <a href="#" class="text-gray-400 hover:text-white mx-3">
+            Home
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white mx-3">
+            About
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white mx-3">
+            Contact
+          </a>
+          <a
+            href="#"
+            class="bg-white text-gray-900 rounded-md py-2 px-4 hover:bg-gray-200 ml-3"
+          >
+            Sign Up
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
 }
 
-export default Header
+export default Header;
