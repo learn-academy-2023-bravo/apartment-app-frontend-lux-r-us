@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react"
-import NotFound from "../pages/NotFound.js"
+import Home from "../pages/Home.js"
 
-describe("<NotFound/>", () => {
+describe("<Home/>", () => {
   it("renders without crashing", () => {
-    render(<NotFound />)
+    render(<Home />)
   })
 })
