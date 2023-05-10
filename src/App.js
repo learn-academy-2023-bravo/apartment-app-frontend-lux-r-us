@@ -23,19 +23,21 @@ const App = () => {
     <>
       <BrowserRouter>
         <Header />
-        <Container>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/index" element={<ApartmentIndex />} />
-            <Route path="/myapartments" element={<MyApartments />} />
-            <Route path="/apartmentshow" element={<ApartmentShow />} />
-            <Route path="/apartmentnew" element={<ApartmentNew />} />
-            <Route path="/apartmentedit" element={<ApartmentEdit />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Container>
+        <div className="bg-gray-500">
+          <Container>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/index" element={<ApartmentIndex />} />
+              <Route path="/myapartments" element={<MyApartments />} />
+              <Route path="/apartmentshow" element={<ApartmentShow />} />
+              <Route path="/apartmentnew" element={<ApartmentNew />} />
+              <Route path="/apartmentedit" element={<ApartmentEdit />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Container>
+        </div>
         <Footer />
       </BrowserRouter>
     </>
