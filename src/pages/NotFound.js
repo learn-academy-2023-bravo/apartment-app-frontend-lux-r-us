@@ -42,7 +42,11 @@ const NotFound = () => {
 
   animate();
 
-  return <></>;
+  return (
+    <>
+      <h1>this is the not found page</h1>
+    </>
+  );
 };
 
 export default NotFound;
