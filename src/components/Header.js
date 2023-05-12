@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react"
+import { Link, NavLink } from "react-router-dom"
 import {
   Collapse,
   Navbar,
@@ -7,18 +7,17 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
   NavbarText,
-} from "reactstrap";
+} from "reactstrap"
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen);
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <header class="bg-gray-900 text-white">
@@ -27,25 +26,26 @@ function Header() {
           LUX-R-US
         </a>
         <nav class="flex items-center">
-          <a href="#" class="text-gray-400 hover:text-white mx-3">
+          <NavLink to="/" class="text-gray-400 hover:text-white mx-3">
             Home
-          </a>
-          <a href="#" class="text-gray-400 hover:text-white mx-3">
-            About
-          </a>
+          </NavLink>
+
+          <NavLink to="/login" class="text-gray-400 hover:text-white mx-3">
+            Log In
+          </NavLink>
           <a href="#" class="text-gray-400 hover:text-white mx-3">
             Contact
           </a>
-          <a
-            href="#"
+          <NavLink
+            to="/signup"
             class="bg-white text-gray-900 rounded-md py-2 px-4 hover:bg-gray-200 ml-3"
           >
             Sign Up
-          </a>
+          </NavLink>
         </nav>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

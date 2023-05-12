@@ -1,4 +1,4 @@
-import mockApartments from "../mockApartments";
+
 import { NavLink } from "react-router-dom";
 import React from "react";
 
@@ -8,7 +8,7 @@ const ApartmentIndex = ({ apartments }) => {
       <h2 className="text-2xl font-bold mb-6">
         Show all the pads: not protected
       </h2>
-      {mockApartments?.map(
+      {apartments?.map(
         ({
           id,
           street,
