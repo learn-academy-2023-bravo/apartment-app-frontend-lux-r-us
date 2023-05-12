@@ -1,11 +1,23 @@
-import { NavLink } from "react-router-dom"
+import React, { useState } from "react"
+import { Link, NavLink } from "react-router-dom"
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText,
+} from "reactstrap"
 
+function Header() {
+  const [isOpen, setIsOpen] = useState(false)
 
-const Header = () => {
-
-  const handleClick = () => {
-    logout()
-  }
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <header class="bg-gray-900 text-white">
