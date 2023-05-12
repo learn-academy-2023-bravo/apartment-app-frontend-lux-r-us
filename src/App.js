@@ -12,15 +12,15 @@ import ApartmentShow from "./pages/ApartmentShow"
 import NotFound from "./pages/NotFound"
 import Footer from "./components/Footer"
 import { Container } from "reactstrap"
+import mockUsers from "./mockUsers"
+import mockApartments from "./mockApartments"
 
 const App = () => {
-
-  const url = "http://localhost:3000"
   const [currentuser, setCurrentUser] = useState(null)
-  const [apartments, setApartments] = useState([])
+  const [apartments, setApartments] = useState(mockApartments)
 
   const readApartment = () => {
-    fetch(`${url}/apartments`)
+    fetch("http://localhost:3000/cats")
       .then((response) => response.json())
       .then((payload) => {
         setApartments(payload)
@@ -28,40 +28,8 @@ const App = () => {
       .catch((error) => console.log(error))
   }
 
-  const login = (userInfo) => {
-    fetch(`${url}/login`, {
-      body: JSON.stringify(userInfo),
-      headers: {
-        "Content-Type": 'application/json',
-       "Accept": 'application/json'
-      },
-      method: 'POST'
-    })
-    .then (response => {
-      // this is to store  the token into local storage... which is like a bag of holding or something along those lines
-      localStorage.setItem('token', response.headers.get("Authorization"))
-      return response.json()
-    })
-    .then(payload => {
-      setCurrentUser(payload)
-
-    })
-    .catch(error => console.log('login errors: ', error))
-  }
-  
-  const logout = () => {
-    fetch(`${url}/logout`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': localstorage.getItem('token')
-      },
-      method: 'DELETE'
-    })
-    .then (payload => {
-      localStorage.removeItem('token')
-      setCurrentUser(null)
-    })
-    .catch(error => console.log('log out errors: ', error))
+  const signup = (email, password) => {
+    setCurrentUser({ email: email, password: password })
   }
 
   const createApartment = (apartment) => {
@@ -78,13 +46,13 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Header current_user={currentUser} logout={logout}/>
+        <Header />
         <div className="bg-gray-500">
           <Container>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login login={login}/>} />
-              <Route path="/signup" element={<SignUp signup={signup}/>} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="/index" element={<ApartmentIndex />} />
               <Route path="/myapartments" element={<MyApartments />} />
               <Route

@@ -1,33 +1,10 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import Lux from "../assets/Lux-R-Us.svg"
 import { NavLink } from "react-router-dom"
 
 const SignUp = ({ signup }) => {
-
-  const formRef = useRef()
-
-  const handleSubmit = (e) => {
-    //needed to stop default behaviour of the form
-    e.preventDefault()
-    
-    //store the form entries into a variable
-    const formData = new FormData(formRef.current)
-
-    //create an object from the entries... entries are an array otherwise
-    const data = Object.fromEntries(formData)
-
-    //convert user info in a format that can be used by jwt
-
-    const userInfo = {
-      'user':{ email: data.email, password: data.password }
-    }
-    
-    signup(userInfo)
-    navigate("/")
-
-    // resets the input field
-    e.target.reset()  
-  }
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   return (
     <>
@@ -45,8 +22,7 @@ const SignUp = ({ signup }) => {
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create and account
               </h1>
-
-              <form ref={formRef} onSubmit={handleSubmit} class="space-y-4 md:space-y-6" action="#">
+              <form class="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label
                     for="email"
@@ -55,10 +31,10 @@ const SignUp = ({ signup }) => {
                     Your email
                   </label>
                   <input
-                    type='submit'
+                    type="email"
                     name="email"
                     id="email"
-                    value='Submit'
+                    value={email}
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
                   />
